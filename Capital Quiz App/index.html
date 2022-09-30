@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1></h1>
+  </body>
+  <script>
+    var readlineSync = require("readline-sync");
+
+    var score = 0;
+    let questions = [
+      {
+        question: "capital of india ? ",
+        answer: "delhi",
+      },
+      {
+        question: "capital of United Kingdom? ",
+        answer: "London",
+      },
+      {
+        question: "capital of South Africa ? ",
+        answer: "Cape Town",
+      },
+      {
+        question: "capital of United States? ",
+        answer: "Washington,D.C.",
+      },
+      {
+        question: "capital of Russia ? ",
+        answer: "Moscow",
+      },
+    ];
+
+    function Welcome() {
+      let name = readlineSync.question("what is your name ?");
+      console.log(`welcome ! ${name} let's play quiz of Captials ?`);
+    }
+
+    function Quest(question, answer) {
+      let ans = readlineSync.question(question);
+
+      console.log(`you have Entered ${ans}`);
+      if (ans == answer) {
+        console.log("you are right");
+        score++;
+      } else {
+        console.log("you are wrong");
+        if (score == 0) {
+          ("");
+        } else {
+          score--;
+        }
+      }
+      console.log(`current score is ${score}`);
+      console.log("___________________________________");
+    }
+
+    function game() {
+      for (var i = 0; i < questions.length; i++) {
+        var currentQuestion = questions[i];
+        Quest(currentQuestion.question, currentQuestion.answer);
+      }
+    }
+
+    function currentScore() {
+      console.log(`Current Score : ${score}`);
+    }
+
+    Welcome();
+    game();
+    currentScore();
+  </script>
+</html>
